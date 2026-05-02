@@ -53,10 +53,19 @@ jobs:
           files: com.lobehub.LobeHub.yml
           upload-pages-artifact: false
 
-      - name: Disable GPG verification in repo
+      - name: Sign repo with GPG
+        env:
+          GPG_KEY: ${{ secrets.FLATPAK_GPG_KEY }}
         run: |
-          sed -i 's/gpg-verify=true/gpg-verify=false/' repo/config
-          flatpak build-update-repo repo
+          export GNUPGHOME=/tmp/gnupg
+          mkdir -p $GNUPGHOME
+          chmod 700 $GNUPGHOME
+          echo "$GPG_KEY" | gpg --batch --import
+          KEYID=$(gpg --list-keys --with-colons | grep fpr | head -1 | cut -d: -f10)
+          flatpak build-update-repo --gpg-sign=$KEYID --gpg-homedir=$GNUPGHOME repo
+          gpg --export --armor $KEYID > repo/lobehub-flatpak.gpg
+          GPGKEY_B64=$(gpg --export $KEYID | base64 -w0)
+          printf '\nGPGKey=%s\n' "$GPGKEY_B64" >> repo/index.flatpakrepo
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3

@@ -26,6 +26,7 @@ modules:
       - cp squashfs-root/lobehub-desktop.desktop com.lobehub.LobeHub.desktop
       - desktop-file-edit --set-icon com.lobehub.LobeHub --set-key Exec --set-value 'run.sh %u' com.lobehub.LobeHub.desktop
       - cp squashfs-root/usr/share/icons/hicolor/514x514/apps/lobehub-desktop.png com.lobehub.LobeHub.png || cp squashfs-root/lobehub-desktop.png com.lobehub.LobeHub.png || true
+      - convert com.lobehub.LobeHub.png -resize 512x512! com.lobehub.LobeHub.png || ffmpeg -i com.lobehub.LobeHub.png -vf scale=512:512 com.lobehub.LobeHub.png -y || true
       - install -D run.sh -t /app/bin
       - install -Dm644 com.lobehub.LobeHub.metainfo.xml -t /app/share/metainfo
       - install -Dm644 com.lobehub.LobeHub.desktop -t /app/share/applications

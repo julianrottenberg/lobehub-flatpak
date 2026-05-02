@@ -62,6 +62,10 @@ jobs:
           chmod 700 $GNUPGHOME
           echo "$GPG_KEY" | gpg --batch --import
           KEYID=$(gpg --list-keys --with-colons | grep fpr | head -1 | cut -d: -f10)
+          # Sign all commits/refs in the repo
+          for ref in $(ostree refs --repo=repo); do
+            ostree gpg-sign --repo=repo --gpg-homedir=$GNUPGHOME "$ref" $KEYID
+          done
           flatpak build-update-repo --gpg-sign=$KEYID --gpg-homedir=$GNUPGHOME repo
           gpg --export --armor $KEYID > repo/lobehub-flatpak.gpg
           GPGKEY_B64=$(gpg --export $KEYID | base64 -w0)

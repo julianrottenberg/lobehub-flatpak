@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=LobeHub
+Comment=AI agent workspace
+Exec=run.sh %U
+Type=Application
+Icon=com.lobehub.LobeHub
+Categories=Network;Chat;Office;
+StartupNotify=true
+StartupWMClass=LobeHub

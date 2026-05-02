@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>com.lobehub.LobeHub</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>MIT</project_license>
+  <name>LobeHub</name>
+  <summary>AI agent workspace for work and life</summary>
+  <description>
+    <p>LobeHub is the ultimate space for work and life: to find, build, and collaborate with agent teammates that grow with you.</p>
+    <p>Features:</p>
+    <ul>
+      <li>Multi-provider AI chat interface</li>
+      <li>Agent marketplace and custom agents</li>
+      <li>Plugin system for extended functionality</li>
+      <li>Self-hostable server option</li>
+    </ul>
+  </description>
+  <launchable type="desktop-id">com.lobehub.LobeHub.desktop</launchable>
+  <screenshots>
+    <screenshot type="default">
+      <caption>Main chat interface</caption>
+      <image>https://lobehub.com/_next/static/media/screenshot.1116y1o-m.rz1.png</image>
+    </screenshot>
+  </screenshots>
+  <url type="homepage">https://lobehub.com</url>
+  <url type="bugtracker">https://github.com/lobehub/lobehub/issues</url>
+  <developer_name>LobeHub Team</developer_name>
+  <releases>
+    <release version="2.1.56" date="2026-05-01"/>
+  </releases>
+  <content_rating type="oars-1.1"/>
+</component>

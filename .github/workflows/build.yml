@@ -51,7 +51,17 @@ jobs:
         uses: andyholmes/flatter@main
         with:
           files: com.lobehub.LobeHub.yml
-          upload-pages-artifact: true
+          upload-pages-artifact: false
+
+      - name: Disable GPG verification in repo
+        run: |
+          sed -i 's/gpg-verify=true/gpg-verify=false/' repo/config
+          flatpak build-update-repo repo
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: repo
 
   deploy:
     name: Deploy to GitHub Pages

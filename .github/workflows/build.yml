@@ -42,6 +42,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Install Flatpak dependencies
+        run: |
+          flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+          flatpak install --noninteractive flathub org.freedesktop.Platform//25.08 org.freedesktop.Sdk//25.08 org.electronjs.Electron2.BaseApp//25.08
+
       - name: Build
         uses: andyholmes/flatter@main
         with:

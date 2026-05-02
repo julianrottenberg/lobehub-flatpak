@@ -83,7 +83,7 @@ gh run watch --repo "$USERNAME/$REPO_NAME"
 ### 5. Install on your machine
 
 ```bash
-flatpak remote-add lobehub "https://$USERNAME.github.io/$REPO_NAME/repo.flatpakrepo"
+flatpak remote-add lobehub "https://$USERNAME.github.io/$REPO_NAME/index.flatpakrepo"
 flatpak install lobehub com.lobehub.LobeHub
 ```
 

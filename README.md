@@ -10,7 +10,7 @@ Self-hosted Flatpak repository for LobeHub desktop app with automatic updates.
 
 ### 2. Add Repository to Your System
 ```bash
-flatpak remote-add lobehub https://YOUR_USERNAME.github.io/lobehub-flatpak/repo.flatpakrepo
+flatpak remote-add lobehub https://YOUR_USERNAME.github.io/lobehub-flatpak/index.flatpakrepo
 flatpak install lobehub com.lobehub.LobeHub
 ```
 

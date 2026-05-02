@@ -51,4 +51,4 @@ modules:
       - type: script
         dest-filename: run.sh
         commands:
-          - zypak-wrapper.sh /app/bin/lobehub/lobehub "$@"
+          - zypak-wrapper.sh /app/bin/lobehub/lobehub-desktop "$@"

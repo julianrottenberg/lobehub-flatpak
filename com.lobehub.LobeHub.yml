@@ -32,8 +32,8 @@ modules:
       - mv squashfs-root /app/bin/lobehub
     sources:
       - type: file
-        url: https://github.com/lobehub/lobehub/releases/download/v2.1.56/LobeHub-2.1.56.AppImage
-        sha256: 5f0c4afb957210ad93aa35ccb7e87c6a3a8ddd738c134e1c33a7d8818b6b4c66
+        url: https://github.com/lobehub/lobehub/releases/download/v2.2.18/LobeHub-2.2.18.AppImage
+        sha256: 568f66adc6030dcb3863edc88a50396e468ac56cb177f736d50ce7570f308da4
         dest-filename: LobeHub.AppImage
         only-arches:
           - x86_64

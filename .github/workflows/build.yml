@@ -45,6 +45,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Sync metainfo version from manifest
+        run: |
+          VERSION=$(grep -oE 'releases/download/v[0-9.]+' com.lobehub.LobeHub.yml | head -1 | sed 's|.*/v||')
+          sed -i -E "s|<release version=\"[^\"]+\" date=\"[^\"]+\"/>|<release version=\"$VERSION\" date=\"$(date -u +%F)\"/>|" com.lobehub.LobeHub.metainfo.xml
+          grep '<release' com.lobehub.LobeHub.metainfo.xml
+
       - name: Install Flatpak dependencies
         run: |
           flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
